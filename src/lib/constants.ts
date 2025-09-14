@@ -1,7 +1,7 @@
 // API Configuration
 export const API_CONFIG = {
   BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL || 'https://api-yebingo-com.onrender.com/api',
-  SOCKET_URL: process.env.NEXT_PUBLIC_SOCKET_URL || 'https://api-yebingo-com.onrender.com',
+  SOCKET_URL: process.env.NEXT_PUBLIC_API_BASE_URL || 'https://api-yebingo-com.onrender.com',
   SOCKET_TIMEOUT: 10000,
   RECONNECTION_ATTEMPTS: 5,
   RECONNECTION_DELAY: 1000,
