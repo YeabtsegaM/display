@@ -1,0 +1,300 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* --background: #0a0a0a; */
+    --background: #000000;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Custom animations for enhanced BINGO display */
+@keyframes spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(34, 197, 94, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.8);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+/* 3D Keno Ball Animations */
+@keyframes keno-bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  40%, 43% {
+    transform: translate3d(0, -30px, 0) rotate(180deg);
+  }
+  70% {
+    transform: translate3d(0, -15px, 0) rotate(90deg);
+  }
+  90% {
+    transform: translate3d(0, -4px, 0) rotate(270deg);
+  }
+}
+
+@keyframes keno-spin {
+  0% {
+    transform: rotateY(0deg) rotateX(0deg);
+  }
+  25% {
+    transform: rotateY(90deg) rotateX(45deg);
+  }
+  50% {
+    transform: rotateY(180deg) rotateX(0deg);
+  }
+  75% {
+    transform: rotateY(270deg) rotateX(-45deg);
+  }
+  100% {
+    transform: rotateY(360deg) rotateX(0deg);
+  }
+}
+
+@keyframes keno-glow {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px rgba(251, 191, 36, 0.6),
+      0 0 40px rgba(251, 191, 36, 0.4),
+      0 0 60px rgba(251, 191, 36, 0.2),
+      inset 0 0 20px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 
+      0 0 30px rgba(251, 191, 36, 0.8),
+      0 0 60px rgba(251, 191, 36, 0.6),
+      0 0 90px rgba(251, 191, 36, 0.4),
+      inset 0 0 30px rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes keno-shine {
+  0% {
+    background: radial-gradient(circle at 30% 30%, 
+      rgba(208, 254, 4, 0.951) 0%, 
+      rgba(251, 191, 36, 0.8) 40%, 
+      rgba(249, 115, 22, 0.9) 100%);
+  }
+  50% {
+    background: radial-gradient(circle at 70% 70%, 
+      rgb(203, 255, 13) 0%, 
+      rgba(251, 191, 36, 0.9) 40%, 
+      rgba(249, 115, 22, 1) 100%);
+  }
+  100% {
+    background: radial-gradient(circle at 30% 30%, 
+      rgb(206, 251, 5) 0%, 
+      rgba(251, 191, 36, 0.8) 40%, 
+      rgba(249, 115, 22, 0.9) 100%);
+  }
+}
+
+.animate-keno-bounce {
+  animation: keno-bounce 1.5s ease-in-out infinite;
+}
+
+.animate-keno-spin {
+  animation: keno-spin 3s linear infinite;
+}
+
+.animate-keno-glow {
+  animation: keno-glow 2s ease-in-out infinite;
+}
+
+.animate-keno-shine {
+  animation: keno-shine 3s ease-in-out infinite;
+}
+
+.keno-ball-3d {
+  background: radial-gradient(circle at 30% 30%, 
+    rgba(255, 255, 255, 0.3) 0%, 
+    rgba(251, 191, 36, 0.8) 40%, 
+    rgba(249, 115, 22, 0.9) 100%);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.animate-reverse {
+  animation: spin-reverse 2s linear infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Modern UI Animations */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) skewX(-12deg);
+  }
+  100% {
+    transform: translateX(200%) skewX(-12deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Enhanced floating animation */
+@keyframes float-enhanced {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-8px) rotate(180deg);
+    opacity: 0.8;
+  }
+}
+
+.animate-float-enhanced {
+  animation: float-enhanced 4s ease-in-out infinite;
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  background-size: 200px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Hide scrollbar utilities */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for main areas */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+/* Keno ball 3D effect */
+.keno-ball-3d {
+  background: radial-gradient(circle at 30% 30%, 
+    rgba(255, 215, 0, 1) 0%, 
+    rgba(255, 165, 0, 0.9) 40%, 
+    rgba(255, 140, 0, 0.8) 70%, 
+    rgba(255, 69, 0, 0.7) 100%);
+  box-shadow: 
+    inset 2px 2px 4px rgba(255, 255, 255, 0.3),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.2),
+    0 4px 8px rgba(0, 0, 0, 0.3);
+}
